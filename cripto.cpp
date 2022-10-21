@@ -9,8 +9,8 @@ char *readBlock()
 {
     char controlFirstLoop = 0;
     char line[200];
-    char *block = new char[8000];
-    while (fgets(line, 81, stdin))
+    char *block = new char[82 * 100]; // 100 lines of 80 chars + 1 for the null char + 1 for the line feed
+    while (fgets(line, 82, stdin))
     {
         if (line[0] == '\n' && controlFirstLoop)
         {
@@ -79,7 +79,7 @@ char *matchCypher(char *decode, char *block)
 
 char *decode_string(char *cypher, char *block)
 {
-    char *decode = new char[8000];
+    char *decode = new char[82 * 100];
     char *d = decode;
     for (char *b = block; *b; b++, d++)
     {
