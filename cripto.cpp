@@ -50,7 +50,6 @@ char *match(char *line, char *decode)
             }
         }
     }
-
     return cypher;
 }
 
@@ -75,7 +74,6 @@ char *matchCypher(char *decode, char *block)
         }
         *l = *block;
     }
-
     return NULL;
 }
 
@@ -91,14 +89,12 @@ char *decode_string(char *cypher, char *block)
         else
             *d = *b;
     }
-
     return decode;
 }
 
 int main(void)
 {
     int nBlocks;
-    int isMatch;
     char *block;
     char *cypher;
     char decode[81] = "the quick brown fox jumps over the lazy dog";
@@ -112,12 +108,8 @@ int main(void)
         cypher = matchCypher(decode, block);
         DEBUG(printf("%s\n", cypher ? cypher : "Não resolvido"););
         if (cypher)
-        {
             printf("%s\n", decode_string(cypher, block));
-        }
         else
-        {
             printf("No solution.\n\n");
-        }
     }
 }
